@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name:        Register Mail
-Plugin URI:         register_mail
+Plugin URI:         https://github.com/atamj/register_mail.git
 Description:        Plugin qui permet d'envoyer un mail à l'admin à l'inscription d'un nouvel utilisateur
 Version:            1.0.0
 Author:             Jaël Atam
