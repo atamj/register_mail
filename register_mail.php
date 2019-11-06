@@ -19,13 +19,16 @@ class register_mail
         if (isset($_POST["email"])){
             $user_mail = $_POST["email"];
             $site_name = get_bloginfo('name');
+            $site_end_url = str_ireplace("https://", "", get_bloginfo('url'));
+            $site_end_url = str_ireplace("http://", "",  $site_end_url);
+            $site_end_url = str_ireplace("www.", "",  $site_end_url);
             $to = get_option('admin_email');
             $subject = $_POST["register"];
             $message = "<p style='font-size: 18px'>Bonjour,</p>
                     <p style='font-size: 18px'>".$subject." d'un nouvel utilisateur sous l'adresse courriel : '".$user_mail."'.<br>
                     Vous pouvez maintenant le contacter pour le rajouter dans un groupe.</p>
                     <p style='font-size: 18px'>Cordialement,</p>";
-            $headers = array('Content-Type: text/html; charset=UTF-8', "From: ".$site_name." < ne_pas_repondre@".str_ireplace("http://", "", get_bloginfo('url'))." >");
+            $headers = array('Content-Type: text/html; charset=UTF-8', "From: ".$site_name." < ne_pas_repondre@".$site_end_url." >");
             wp_mail($to, $subject, $message, $headers);
         }
 
